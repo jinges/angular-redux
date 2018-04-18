@@ -1,0 +1,32 @@
+.trans{
+  padding: 1rem;
+}
+.line{
+  padding: .4rem 0;
+}
+.file{
+  height: 2rem;
+  padding: .2rem;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+  margin-right: .2rem;
+}
+.trans-icon{
+  display: block;
+  width: 4rem;
+  position: relative;
+}
+.trans-icon span {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  margin: auto;
+  background: url(/assets/img/trans.png) 0 0 no-repeat;
+  background-size: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0
+}
+

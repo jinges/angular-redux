@@ -11,18 +11,24 @@ import { reducers } from './reducers/index'
 import { HttpClientModule } from '@angular/common/http';
 
 import { EffectsModule } from '@ngrx/effects';
+import { ListComponent } from './list/list.component';
+import { DetailComponent } from './detail/detail.component';
 
+import { AppRoutingModule } from './app-routing/app-routing.module'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([CurrencyEffects])
+    EffectsModule.forRoot([CurrencyEffects]),
+    AppRoutingModule
   ],
   providers: [CurrencyService],
   bootstrap: [AppComponent]

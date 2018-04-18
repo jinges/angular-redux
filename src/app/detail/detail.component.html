@@ -1,0 +1,9 @@
+<p>
+  detail works!
+
+  {{amount$ | async}}
+</p>
+
+<p *ngFor="let currency of (currencyRates$ | async)">
+  {{currency.code + ' ' + currency.value * (amount$ | async)}}
+</p>

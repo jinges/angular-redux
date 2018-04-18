@@ -1,0 +1,32 @@
+<div>
+
+  <input type="text">
+
+  <!-- <p *ngFor="let currency of (currencyRates$ | async)">
+ {{currencyName$[currency.code] + ' ' + currency.value * (amount$ | async)}}
+<a routerLink='/detail'>detail</a>
+</p>-->
+
+</div>
+<section class="trans grid">
+  <article class="cell">
+    <div class="line grid">
+      <input type='tel' class="file cell" [ngModel]='amount$ | async' (ngModelChange)="onAmountChange($event)">
+      <select name="currencyIn" class="file" [(ngModel)]="currencyIn" (ngModelChange)="changeCurrencyIn($event)">
+        <option *ngFor="let currency of currencyNames$"  [ngValue]="currency.key">{{currency.name}}
+        </option>
+      </select>
+    </div>
+    <div class="line grid">
+      <input type='tel' class="file cell">
+      <select name="currencyOut" class="file" [(ngModel)]="currencyOut" (ngModelChange)="changeCurrencyOut($event)">
+        <option *ngFor="let currency of currencyNames$"  [ngValue]="currency.key">{{currency.name}}
+        </option>
+      </select>
+    </div>
+  </article>
+  <div class="trans-icon">
+    <span (click)="changeTrans($even)"></span>
+  </div>
+</section>
+
