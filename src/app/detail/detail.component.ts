@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AmountChangeAction } from './../actions/amount'
+import { AmountChangeAction } from './../actions/amount';
 import { CurrenciesUpdateAction } from './../actions/currency';
 import { Currency } from './../models/currency';
 
@@ -17,8 +17,8 @@ export class DetailComponent implements OnInit {
   public currencyRates$: Observable<Currency[]>;
 
   constructor(public store: Store<fromRoot.State>) {
-    this.amount$ = store.select(fromRoot.getAmountState);
-    this.currencyRates$ = store.select(fromRoot.getCurrencyRates);
+    // this.amount$ = store.select(fromRoot.getAmountState);
+    // this.currencyRates$ = store.select(fromRoot.getCurrencyRates);
   }
 
   ngOnInit() {

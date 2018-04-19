@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AmountChangeAction } from './../actions/amount'
+import { AmountChangeAction } from './../actions/amount';
 import { CurrenciesUpdateAction } from './../actions/currency';
 import { Currency } from './../models/currency';
+import { Amount } from './../models/amount';
 
 import * as fromRoot from './../reducers';
 import { Observable } from "rxjs/Observable";
@@ -16,12 +17,12 @@ import { CurrenctAttrite } from './../models/currencyName';
 })
 export class ListComponent implements OnInit {
   title = 'app';
-  public amount$: Observable<number>;
+  public amount$: Observable<Amount>;
   public currencyRates$: Observable<Currency[]>;
   public currencyName$: CurrenctAttrite = CurrencyName;
-  public currencyNames$ = Object.keys(CurrencyName).map(key => { return { key, name: CurrencyName[key]}});
-  public currencyIn: string = 'USD';
-  public currencyOut: string = 'CNY';
+  public currencyNames$ = Object.keys(CurrencyName).map(key => {return { key, name: CurrencyName[key]}});
+  public currencyIn = 'USD';
+  public currencyOut = 'CNY';
 
   constructor(public store: Store<fromRoot.State>) {
     this.amount$ = store.select(fromRoot.getAmountState);
@@ -31,7 +32,7 @@ export class ListComponent implements OnInit {
   onAmountChange(amount: string) {
     const number = parseFloat(amount);
     if (!isNaN(number)) {
-      this.store.dispatch(new AmountChangeAction(number))
+      this.store.dispatch(new AmountChangeAction({count: number, type: this.currencyIn}));
     }
   }
 
@@ -41,6 +42,8 @@ export class ListComponent implements OnInit {
 
   changeCurrencyIn(val): void {
     this.currencyIn = val;
+    debugger;
+    this.store.dispatch(new AmountChangeAction({count: 10, type: val}));
   }
   changeCurrencyOut(val): void {
     this.currencyOut = val;

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { CurrencyService } from './services/currency.service'
+import { CurrencyService } from './services/currency.service';
 import { CurrencyEffects } from './effects/currencyEffects';
 
 
