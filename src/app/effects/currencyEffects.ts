@@ -2,7 +2,7 @@
  * @Author: 大明冯
  * @Date: 2018-04-11 17:41:02
  * @Last Modified by: 大明冯
- * @Last Modified time: 2018-04-18 17:11:01
+ * @Last Modified time: 2018-04-18 17:35:58
  */
 
 import { CurrenciesUpdatedAction } from './../actions/currency';
@@ -24,7 +24,7 @@ export class CurrencyEffects {
     .ofType(currency.CURRENCIESUPDATE)
     .switchMap(()=>
       this.currencyService
-        .getRates('USD')
+        .getRates('CNY')
         .map(data => new CurrenciesUpdatedAction(data))
     )
 

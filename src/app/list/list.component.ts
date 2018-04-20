@@ -50,4 +50,10 @@ export class ListComponent implements OnInit {
     this.currencyIn = this.currencyOut;
     this.currencyOut = defaultVal;
   }
+  onAmountChange(amount: string) {
+    const number = parseFloat(amount);
+    if (!isNaN(number)) {
+      this.store.dispatch(new AmountChangeAction(number))
+    }
+  }
 }
