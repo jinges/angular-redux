@@ -20,22 +20,26 @@ import { CurrencyService } from './../services/currency.service';
 import { Actions, Effect, toPayload } from '@ngrx/effects';
 // https://blog.nextzy.me/manage-action-flow-in-ngrx-with-ngrx-effects-1fda3fa06c2f
 import * as currency from '../actions/currency';
-import { Amount } from './../models/amount';
+import * as amount from '../actions/amount';
+import { State } from './../reducers';
 
 
 @Injectable()
 export class CurrencyEffects {
   @Effect()
   update$: Observable<Action> = this.actions$
-    .ofType(currency.CURRENCIESUPDATE)
+    .ofType(currency.CURRENCIESUPDATE, amount.AMOUNTCHANGE)
     .map(toPayload)
-    .withLatestFrom(this.store$)
-    .mergeMap(([ payload, store ]) => {
-      const baseCurrency = store.amount.type;
+    .withLatestFrom(this.store$.select('amount'))
+    .mergeMap(([, {base}]) => {
+      const baseCurrency = base;
       return this.currencyService
         .getRates(baseCurrency)
         .map(data => new CurrenciesUpdatedAction(data));
     });
 
-    constructor(private currencyService: CurrencyService, private actions$: Actions,  private store$: Store<Amount>) {};
+    constructor(
+      private currencyService: CurrencyService,
+      private actions$: Actions,
+      private store$: Store<State>) {}
 }

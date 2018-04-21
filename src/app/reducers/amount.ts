@@ -9,9 +9,8 @@ import { ActionReducer, Action } from '@ngrx/store';
 import * as amount from '../actions/amount';
 import { Amount } from './../models/amount';
 
-const defaultAmount: Amount = { count: 1, type: 'USD'};
 
-export function reducer(state = defaultAmount, action: amount.AmountChangeAction) {
+export function reducer(state = {count: 1, base: 'USD'}, action: amount.AmountChangeAction) {
   switch (action.type) {
     case amount.AMOUNTCHANGE:
       return action.payload;

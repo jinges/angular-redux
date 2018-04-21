@@ -7,5 +7,5 @@
 
 export interface Amount {
   count: number;
-  type: string;
+  base: String;
 }

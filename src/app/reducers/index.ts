@@ -17,7 +17,7 @@ export const reducers = {
 
 export interface State {
   amount: Amount;
-  currencies: Currency[];
+  currencies: Currency;
 }
 
 export const getAmountState = (state: State) => state.amount;

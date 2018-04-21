@@ -18,6 +18,6 @@ export class CurrenciesUpdateAction implements Action {
 export class CurrenciesUpdatedAction implements Action {
   type = CURRENCIESUPDATED;
 
-  constructor (public payload: Currency[]) {}
+  constructor (public payload: Currency) {}
 }
 
