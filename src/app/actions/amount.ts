@@ -10,10 +10,20 @@ import { Action } from '@ngrx/store';
 import { Amount } from './../models/amount';
 
 export const AMOUNTCHANGE = '[Amount] Change';
+export const BASECURRENCYCHANGE = '[BaseCurrency] Change';
 
 export class AmountChangeAction implements Action {
   type = AMOUNTCHANGE;
-  constructor(public payload: Amount) {
+  constructor(public payload: Number) {
     this.payload = payload;
   }
 }
+
+export class BaseCurrencyChangeAction implements Action {
+  type = BASECURRENCYCHANGE;
+  constructor(public payload: String) {
+    this.payload = payload;
+  }
+}
+
+export type Actions = AmountChangeAction | BaseCurrencyChangeAction;

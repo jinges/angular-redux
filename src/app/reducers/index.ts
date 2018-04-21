@@ -21,4 +21,4 @@ export interface State {
 }
 
 export const getAmountState = (state: State) => state.amount;
-export const getCurrencyRates = (state: State) => state.currencies;
+export const getCurrencyRates = (state: State) => state.currencies.rates;

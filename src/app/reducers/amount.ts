@@ -10,10 +10,12 @@ import * as amount from '../actions/amount';
 import { Amount } from './../models/amount';
 
 
-export function reducer(state = {count: 1, base: 'USD'}, action: amount.AmountChangeAction) {
+export function reducer(state = {count: 1, base: 'USD'}, action: amount.Actions) {
   switch (action.type) {
     case amount.AMOUNTCHANGE:
-      return action.payload;
+      return {...state, count: action.payload};
+    case amount.BASECURRENCYCHANGE:
+      return {...state, base: action.payload};
     default:
       return state;
   }

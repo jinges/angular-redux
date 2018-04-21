@@ -28,7 +28,7 @@ import { State } from './../reducers';
 export class CurrencyEffects {
   @Effect()
   update$: Observable<Action> = this.actions$
-    .ofType(currency.CURRENCIESUPDATE, amount.AMOUNTCHANGE)
+    .ofType(currency.CURRENCIESUPDATE, amount.BASECURRENCYCHANGE)
     .map(toPayload)
     .withLatestFrom(this.store$.select('amount'))
     .mergeMap(([, {base}]) => {

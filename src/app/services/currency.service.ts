@@ -11,8 +11,11 @@ export class CurrencyService {
 
   constructor(private http: HttpClient) { }
 
+  private oldUrl = 'https://api.fixer.io/latest';
+  private url = 'https://data.fixer.io/api/latest?access_key=90ebf9dfb4c884dc22826cddb506ab21';
+
   getRates(baseCurrency: String): Observable<Currency> {
-    return this.http.get(`https://api.fixer.io/latest?base=${baseCurrency}`).map((result: {rates: Object, base: String, date: String}) => {
+    return this.http.get(`${this.oldUrl}?base=${baseCurrency}`).map((result: {rates: Object, base: String, date: String}) => {
       return {rates: result.rates};
     });
   }

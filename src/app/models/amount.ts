@@ -6,6 +6,6 @@
  */
 
 export interface Amount {
-  count: number;
+  count: Number;
   base: String;
 }
