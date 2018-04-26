@@ -12,12 +12,12 @@ export const CURRENCIESUPDATE = '[Currency] UpdateAll';
 export const CURRENCIESUPDATED = '[Currency] UpdatedAll';
 
 export class CurrenciesUpdateAction implements Action {
-  type = CURRENCIESUPDATE
+  type = CURRENCIESUPDATE;
 }
 
 export class CurrenciesUpdatedAction implements Action {
   type = CURRENCIESUPDATED;
 
-  constructor (public payload: Currency[]) {}
+  constructor (public payload: Currency) {}
 }
 
